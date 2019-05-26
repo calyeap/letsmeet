@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  user: one
+  user_type: User
+  choices: false
+  date: 2019-05-26 16:40:32
+
+two:
+  name: MyString
+  description: MyText
+  user: two
+  user_type: User
+  choices: false
+  date: 2019-05-26 16:40:32
