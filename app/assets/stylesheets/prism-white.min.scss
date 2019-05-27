@@ -1,0 +1,326 @@
+$color_1: #000;
+$color_2: #708090;
+$color_3: #999;
+$color_4: #905;
+$color_5: #690;
+$color_6: #9a6e3a;
+$color_7: #07a;
+$color_8: #DD4A68;
+$color_9: #e90;
+$color_10: inherit;
+$color_11: #bbb;
+$font_family_1: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+
+.command-line-prompt {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	border-right: 1px solid #999;
+	display: block;
+	float: left;
+	font-size: 100%;
+	letter-spacing: -1px;
+	margin-right: 1em;
+	pointer-events: none;
+	user-select: none;
+	>span {
+		&:before {
+			color: $color_3;
+			content: ' ';
+			display: block;
+			padding-right: .8em;
+		}
+	}
+	>span[data-user] {
+		&:before {
+			content: "[" attr(data-user) "@" attr(data-host) "] $";
+		}
+	}
+	>span[data-user=root] {
+		&:before {
+			content: "[" attr(data-user) "@" attr(data-host) "] #";
+		}
+	}
+	>span[data-prompt] {
+		&:before {
+			content: attr(data-prompt);
+		}
+	}
+}
+div.code-toolbar {
+	>.toolbar {
+		button {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			border: 0;
+			font: inherit;
+			line-height: normal;
+			overflow: visible;
+			color: $color_11;
+			font-size: .8em;
+			padding: 0 .5em;
+			background: #f5f2f0;
+			background: rgba(224,224,224,.2);
+			box-shadow: 0 2px 0 0 rgba(0,0,0,.2);
+			border-radius: .5em;
+			&:focus {
+				color: $color_10;
+				text-decoration: none;
+			}
+			&:hover {
+				color: $color_10;
+				text-decoration: none;
+			}
+		}
+		position: absolute;
+		top: .3em;
+		right: .2em;
+		transition: opacity .3s ease-in-out;
+		opacity: 0;
+		.toolbar-item {
+			display: inline-block;
+		}
+		a {
+			cursor: pointer;
+			color: $color_11;
+			font-size: .8em;
+			padding: 0 .5em;
+			background: #f5f2f0;
+			background: rgba(224,224,224,.2);
+			box-shadow: 0 2px 0 0 rgba(0,0,0,.2);
+			border-radius: .5em;
+			&:focus {
+				color: $color_10;
+				text-decoration: none;
+			}
+			&:hover {
+				color: $color_10;
+				text-decoration: none;
+			}
+		}
+		span {
+			color: $color_11;
+			font-size: .8em;
+			padding: 0 .5em;
+			background: #f5f2f0;
+			background: rgba(224,224,224,.2);
+			box-shadow: 0 2px 0 0 rgba(0,0,0,.2);
+			border-radius: .5em;
+			&:focus {
+				color: $color_10;
+				text-decoration: none;
+			}
+			&:hover {
+				color: $color_10;
+				text-decoration: none;
+			}
+		}
+	}
+	position: relative;
+	&:hover {
+		>.toolbar {
+			opacity: 1;
+		}
+	}
+}
+code[class*=language-] {
+	color: $color_1;
+	background: 0 0;
+	text-shadow: 0 1px #fff;
+	font-family: $font_family_1;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	&::-moz-selection {
+		text-shadow: none;
+		text-shadow: none;
+		background: #b3d4fc;
+		background: #b3d4fc;
+	}
+	&::selection {
+		text-shadow: none;
+		text-shadow: none;
+		background: #b3d4fc;
+		background: #b3d4fc;
+	}
+}
+pre[class*=language-] {
+	color: $color_1;
+	background: 0 0;
+	text-shadow: 0 1px #fff;
+	font-family: $font_family_1;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	background: #f5f2f0;
+	&::-moz-selection {
+		text-shadow: none;
+		text-shadow: none;
+		background: #b3d4fc;
+		background: #b3d4fc;
+	}
+	&::selection {
+		text-shadow: none;
+		text-shadow: none;
+		background: #b3d4fc;
+		background: #b3d4fc;
+	}
+}
+&:not(pre) {
+	>code[class*=language-] {
+		background: #f5f2f0;
+		padding: .1em;
+		border-radius: .3em;
+		white-space: normal;
+	}
+}
+.token.cdata {
+	color: $color_2;
+}
+.token.comment {
+	color: $color_2;
+}
+.token.doctype {
+	color: $color_2;
+}
+.token.prolog {
+	color: $color_2;
+}
+.token.punctuation {
+	color: $color_3;
+}
+.namespace {
+	opacity: .7;
+}
+.token.boolean {
+	color: $color_4;
+}
+.token.constant {
+	color: $color_4;
+}
+.token.deleted {
+	color: $color_4;
+}
+.token.number {
+	color: $color_4;
+}
+.token.property {
+	color: $color_4;
+}
+.token.symbol {
+	color: $color_4;
+}
+.token.tag {
+	color: $color_4;
+}
+.token.attr-name {
+	color: $color_5;
+}
+.token.builtin {
+	color: $color_5;
+}
+.token.char {
+	color: $color_5;
+}
+.token.inserted {
+	color: $color_5;
+}
+.token.selector {
+	color: $color_5;
+}
+.token.string {
+	color: $color_5;
+}
+.language-css {
+	.token.string {
+		color: $color_6;
+		background: hsla(0,0%,100%,.5);
+	}
+}
+.style {
+	.token.string {
+		color: $color_6;
+		background: hsla(0,0%,100%,.5);
+	}
+}
+.token.entity {
+	color: $color_6;
+	background: hsla(0,0%,100%,.5);
+	cursor: help;
+}
+.token.operator {
+	color: $color_6;
+	background: hsla(0,0%,100%,.5);
+}
+.token.url {
+	color: $color_6;
+	background: hsla(0,0%,100%,.5);
+}
+.token.atrule {
+	color: $color_7;
+}
+.token.attr-value {
+	color: $color_7;
+}
+.token.keyword {
+	color: $color_7;
+}
+.token.class-name {
+	color: $color_8;
+}
+.token.function {
+	color: $color_8;
+}
+.token.important {
+	color: $color_9;
+	font-weight: 700;
+}
+.token.regex {
+	color: $color_9;
+}
+.token.variable {
+	color: $color_9;
+}
+.token.bold {
+	font-weight: 700;
+}
+.token.italic {
+	font-style: italic;
+}
+.token {
+	a {
+		color: $color_10;
+	}
+}
+@media print {
+	code[class*=language-] {
+		text-shadow: none;
+	}
+	pre[class*=language-] {
+		text-shadow: none;
+	}
+}

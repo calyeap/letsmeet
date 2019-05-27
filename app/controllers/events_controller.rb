@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, :except => [ :show, :index ]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :save]
 
   # GET /events
   # GET /events.json
   def index
-    @my_events = current_user.events.all
     @events = Event.all
+    @my_events = current_user.events.all
+    
     # @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
     @upcoming_events = current_user.events.where(status: 'accepted').order(date: :desc)
     @events_created_future = current_user.events.future.order(date: :desc)
@@ -20,6 +21,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+  
   end
 
   # GET /events/new
@@ -31,11 +33,9 @@ class EventsController < ApplicationController
   def edit
   end
 
-  # POST /events
-  # POST /events.json
   def create
-    @event = current_user.events.build(event_params)
-
+    @event = User.first.events.build
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
