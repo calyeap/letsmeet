@@ -1,10 +1,20 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
+    @my_events = current_user.events.all
     @events = Event.all
+    # @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
+    @upcoming_events = current_user.events.where(status: 'accepted').order(date: :desc)
+    @events_created_future = current_user.events.future.order(date: :desc)
+    @events_created_past = current_user.events.past.order(date: :desc)
+    # @events_invited = Event.joins(:attendances).where(attendances:
+                                    # {'user_id' => current_user.id})
+    # @events_invited_future = @events_invited.future.order(date: :desc)
+    # @events_invited_past = @events_invited.past.order(date: :desc)
   end
 
   # GET /events/1
@@ -24,7 +34,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     respond_to do |format|
       if @event.save
