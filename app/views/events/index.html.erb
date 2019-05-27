@@ -1,3 +1,885 @@
+  <!-- internal CSS -->
+  <style>
+      .pcoded-navbar .pcoded-inner-navbar>li.active>a,
+      .pcoded-navbar .pcoded-inner-navbar>li.pcoded-trigger>a {
+          background: transparent;
+      }
+
+      .pcoded-navbar .pcoded-inner-navbar>li.active>a,
+      .pcoded-navbar .pcoded-inner-navbar>li>a.active {
+          background: #333f54;
+          color: #fff;
+          position: relative;
+      }
+
+      .pcoded-navbar .pcoded-inner-navbar>li.active>a,
+      .pcoded-navbar .pcoded-inner-navbar>li>a.active>.pcoded-micon {
+          color: #fff;
+      }
+
+      .pcoded-navbar .pcoded-inner-navbar>li>a.active:after {
+          content: "";
+          background-color: #1dc4e9;
+          z-index: 1027;
+          position: absolute;
+          left: 0;
+          top: 0px;
+          width: 3px;
+          height: 100%;
+      }
+
+      .nav-pills .nav-link.active,
+      .nav-pills .show>.nav-link {
+          background: #04a9f5;
+          box-shadow: none;
+      }
+
+      pre[class*=language-]>code {
+          border-left: 5px solid #04a9f5;
+      }
+
+      .nav-pills>li i {
+          display: inline-block;
+          font-size: 15px;
+          padding: 0px 0;
+      }
+  </style>
+
+<!-- Nav -->
+    <nav class="pcoded-navbar">
+        <div class="navbar-wrapper">
+            <div class="navbar-brand header-logo">
+                <a href="index.html">
+                    <img class="img-fluid" src="assets/images/logo-docs.png" alt="Datta Able Logo" />
+                </a>
+                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+            </div>
+            <div class="navbar-content scroll-div">
+                <ul class="nav pcoded-inner-navbar">
+					<li class="nav-item pcoded-menu-caption">
+                        <label>At a glance</label>
+                    </li>
+                    <li class="nav-item"><a href="#home" class="nav-link active"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Today</span></a></li>
+                    <li class="nav-item"><a href="#qc" class="nav-link"><span class="pcoded-micon"><i class="feather icon-navigation"></i></span><span class="pcoded-mtext">Invitations</span></a></li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Social</label>
+                    </li>
+                    <li class="nav-item"><a href="#plugins" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span><span class="pcoded-mtext">Friends</span></a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link"><span class="pcoded-micon"><i class="feather icon-star-on"></i></span><span class="pcoded-mtext">Favorites</span></a></li>
+                    
+                    <li class="nav-item"><a href="#references" class="nav-link"><span class="pcoded-micon"><i class="feather icon-menu"></i></span><span class="pcoded-mtext">History</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light">
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
+            <a href="index.html">
+                <img class="img-fluid" src="assets/images/logo-docs.png" alt="Datta Able Logo" />
+            </a>
+        </div>
+        <a class="mobile-menu" id="mobile-header" href="javascript:">
+            <i class="feather icon-more-horizontal"></i>
+        </a>
+<div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+        <li><a href="#!" class="full-screen" onclick="javascript:toggleFullScreen()"><i
+                    class="feather icon-maximize"></i></a></li>
+        <li class="nav-item dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#!">Action</a></li>
+                <li><a class="dropdown-item" href="#!">Another action</a></li>
+                <li><a class="dropdown-item" href="#!">Something else here</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <div class="main-search open">
+                <div class="input-group">
+                    <input type="text" id="m-search" class="form-control" placeholder="Search . . ."
+                        style="width: 90px;">
+                    <a href="#!" class="input-group-append search-close">
+                        <i class="feather icon-x input-group-text"></i>
+                    </a>
+                    <span class="input-group-append search-btn btn btn-primary">
+                        <i class="feather icon-search input-group-text"></i>
+                    </span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li>
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
+                <div class="dropdown-menu dropdown-menu-right notification">
+                    <div class="noti-head">
+                        <h6 class="d-inline-block m-b-0">Notifications</h6>
+                        <div class="float-right">
+                            <a href="#!" class="m-r-10">mark as read</a>
+                            <a href="#!">clear all</a>
+                        </div>
+                    </div>
+                    <ul class="noti-body">
+                        <li class="n-title">
+                            <p class="m-b-0">NEW</p>
+                        </li>
+                        <li class="notification">
+                            <div class="media">
+                                <img class="img-radius" src="../assets/images/user/avatar-1.jpg"
+                                    alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <p><strong>John Doe</strong><span class="n-time text-muted"><i
+                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                    <p>New ticket Added</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="n-title">
+                            <p class="m-b-0">EARLIER</p>
+                        </li>
+                        <li class="notification">
+                            <div class="media">
+                                <img class="img-radius" src="../assets/images/user/avatar-2.jpg"
+                                    alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <p><strong>Joseph William</strong><span class="n-time text-muted"><i
+                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                    <p>Prchace New Theme and make payment</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="notification">
+                            <div class="media">
+                                <img class="img-radius" src="../assets/images/user/avatar-3.jpg"
+                                    alt="Generic placeholder image">
+                                <div class="media-body">
+                                    <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
+                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                    <p>currently login</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="noti-footer">
+                        <a href="#!">show all</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="#!" class="displayChatbox"><i class="icon feather icon-mail"></i></a></li>
+        <li>
+            <div class="dropdown drp-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon feather icon-settings"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right profile-notification">
+                    <div class="pro-head">
+                        <img src="../assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                        <span>John Doe</span>
+                        <a href="auth-signin.html" class="dud-logout" title="Logout">
+                            <i class="feather icon-log-out"></i>
+                        </a>
+                    </div>
+                    <ul class="pro-body">
+                        <li><a href="#!" class="dropdown-item"><i class="feather icon-settings"></i> Settings</a></li>
+                        <li><a href="#!" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+    </header>
+    <div class="pcoded-main-container" id="home">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <div class="row">
+<!-- End of Nav -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Today Card -->
+<div class="col-sm-8">
+<div class="card User-Activity">
+    <div class="card-header">
+        <h5>Today</h5>
+        <div class="card-header-right">
+            <div class="btn-group card-option">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="feather icon-more-horizontal"></i>
+                </button>
+                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                Restore</span></a></li>
+                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i>
+                                collapse</span><span style="display:none"><i class="feather icon-plus"></i>
+                                expand</span></a></li>
+                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                            reload</a></li>
+                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card-block pb-0">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Activity</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th class="text-right"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h6 class="m-0"><img class="rounded-circle m-r-10" style="width:40px;"
+                                    src="../assets/images/user/avatar-1.jpg" alt="activity-user">Ida Jorgensen</h6>
+                        </td>
+                        <td>
+                            <h6 class="m-0">The quick brown fox</h6>
+                        </td>
+                        <td>
+                            <h6 class="m-0">3:28 PM</h6>
+                        </td>
+                        <td>
+                            <h6 class="m-0 text-c-green">Done</h6>
+                        </td>
+                        <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h6 class="m-0"><img class="rounded-circle m-r-10" style="width:40px;"
+                                    src="../assets/images/user/avatar-2.jpg" alt="activity-user">Albert Andersen</h6>
+                        </td>
+                        <td>
+                            <h6 class="m-0">Jumps over the lazy</h6>
+                        </td>
+                        <td>
+                            <h6 class="m-0">2:37 PM</h6>
+                        </td>
+                        <td>
+                            <h6 class="m-0 text-c-red">Missed</h6>
+                        </td>
+                        <td class="text-right"><i class="fas fa-circle text-c-red f-10"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End of Today Card -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Timeline -->
+
+<div class="col-sm-4">
+    <div class="timeline">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">Today</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">This Week</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+            aria-selected="false">All</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-1.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Silje Larsen</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>3784</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-2.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Julie Vad</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>3544</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-3.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Storm Hanse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>2739</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-1.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Frida Thomse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>1032</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-2.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Silje Larsen</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>8750</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-3.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Storm Hanse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>8750</span>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-1.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Silje Larsen</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>3784</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-2.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Julie Vad</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>3544</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-3.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Storm Hanse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>2739</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-1.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Frida Thomse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>1032</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-2.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Silje Larsen</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>8750</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-3.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Storm Hanse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>8750</span>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-1.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Silje Larsen</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>3784</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-2.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Julie Vad</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>3544</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-3.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Storm Hanse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>2739</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-1.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Frida Thomse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-down f-22 m-r-10 text-c-red"></i>1032</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center m-b-20">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-2.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Silje Larsen</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>8750</span>
+            </div>
+        </div>
+        <div class="media friendlist-box align-items-center justify-content-center">
+            <div class="m-r-10 photo-table">
+                <a href="#!"><img class="rounded-circle" style="width:40px;" src="../assets/images/user/avatar-2.jpg"
+                        alt="activity-user"></a>
+            </div>
+            <div class="media-body">
+                <h6 class="m-0 d-inline">Storm Hanse</h6>
+                <span class="float-right d-flex align-items-center"><i
+                        class="fas fa-caret-up f-22 m-r-10 text-c-green"></i>8750</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!-- End of Timeline -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Pending Card -->
+<div class="col-sm-12">
+    <div class="card" id="qc">
+        <div class="card-header">
+            <h5>Pending</h5>
+        <div class="card-header-right">
+            <div class="btn-group card-option">
+                <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
+                    aria-haspopup="true" aria-Expand="false">
+                <i class="feather icon-more-horizontal"></i>
+                </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item minimize-card"><a href="javascript:"><span><i
+                    class="feather icon-minus"></i>Collapse</span><span style="display:none"><i
+                    class="feather icon-plus"></i>Expand</span></a></li>
+                <li class="dropdown-item close-card"><a href="javascript:"><i
+                    class="feather icon-trash"></i>Remove</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+<div class="card-block">
+    <p>You have no pending events</p>
+        </div>
+    </div>
+</div>
+<!-- End of Pending Card -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Upcoming Card -->
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Upcoming</h5>
+            <div class="card-header-right">
+                <div class="btn-group card-option">
+                    <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
+                        aria-haspopup="true" aria-Expand="false">
+                        <i class="feather icon-more-horizontal"></i>
+                    </button>
+                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item minimize-card"><a href="javascript:"><span><i
+                                        class="feather icon-minus"></i>Collapse</span><span style="display:none"><i
+                                        class="feather icon-plus"></i> Expand</span></a></li>
+                        <li class="dropdown-item close-card"><a href="javascript:"><i
+                                    class="feather icon-trash"></i>Remove</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <p>
+                You have no upcoming events
+            </p>
+        </div>
+    </div>
+</div>
+<!-- End of Upcoming Card -->
+
+<!-- My events -->
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>My events</h5>
+            <div class="card-header-right">
+                <div class="btn-group card-option">
+                    <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown"
+                        aria-haspopup="true" aria-Expand="false">
+                        <i class="feather icon-more-horizontal"></i>
+                    </button>
+                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item minimize-card"><a href="javascript:"><span><i
+                                        class="feather icon-minus"></i>Collapse</span><span style="display:none"><i
+                                        class="feather icon-plus"></i> Expand</span></a></li>
+                        <li class="dropdown-item close-card"><a href="javascript:"><i
+                                    class="feather icon-trash"></i>Remove</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <p>
+                <% if @my_events.present? %>
+                  <% @my_events.each do |e| %>
+                    <ul>
+                      <li><%= e.name %></li>
+                    </ul>
+                  <% end %>
+                <% else %>
+                  <p>You have no events currently</p>
+                <% end %>
+
+            </p>
+        </div>
+    </div>
+</div>
+<!-- End of My events -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Extra References -->
+<!-- 
+                                <div class="col-sm-12">
+                                    <div class="card" id="references">
+                                        <div class="card-header">
+                                            <h5>Extra Assets References</h5>
+                                            <div class="card-header-right">
+                                                <div class="btn-group card-option">
+                                                    <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-Expand="false">
+                                                        <i class="feather icon-more-horizontal"></i>
+                                                    </button>
+                                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                                        <li class="dropdown-item minimize-card"><a href="javascript:"><span><i class="feather icon-minus"></i>Collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+                                                        <li class="dropdown-item close-card"><a href="javascript:"><i class="feather icon-trash"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-block">
+                                            <div class="table-responsive">
+                                                <h6>Used Font</h6>
+                                                <table class="table table-bordered table-striped">
+                                                    <thead class="header-table">
+                                                        <tr>
+                                                            <th>Font</th>
+                                                            <th>Description</th>
+                                                            <th>Link</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Google Font</td>
+                                                            <td>
+Open-sans
+                                                            </td>
+                                                            <td>
+<a href="https://getbootstrap.com/" target="_blank">View Resource</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <h6>Font Icons</h6>
+                                                <table class="table table-bordered table-striped">
+                                                    <thead class="header-table">
+                                                        <tr>
+                                                            <th>Font Icon</th>
+                                                            <th>Description</th>
+                                                            <th>Link</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Feather Icon</td>
+                                                            <td>
+i.e. default font icon <a href="http://html.codedthemes.com/datta-able/bootstrap/default/icon-feather.html" target="_blank">icon-feather.html</a>
+                                                            </td>
+                                                            <td>
+<a href="https://feathericons.com/" target="_blank">View Resource</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Font Awesome Icon</td>
+                                                            <td>
+<a href="http://html.codedthemes.com/datta-able/bootstrap/default/icon-fontawsome.html" target="_blank">icon-fontawsome.html</a>
+                                                            </td>
+                                                            <td>
+<a href="https://fontawesome.com" target="_blank">View Resource</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Flag Icon</td>
+                                                            <td>
+<a href="http://html.codedthemes.com/datta-able/bootstrap/default/icon-flag.html" target="_blank">icon-flag.html</a>
+                                                            </td>
+                                                            <td>
+<a href="http://flag-icon-css.lip.is/" target="_blank">View Resource</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Material Icon</td>
+                                                            <td>
+<a href="http://html.codedthemes.com/datta-able/bootstrap/default/icon-material.html" target="_blank">icon-material.html</a>
+                                                            </td>
+                                                            <td>
+<a href="https://google.github.io/material-design-icons/" target="_blank">View Resource</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Simple Line Icon</td>
+                                                            <td>
+<a href="http://html.codedthemes.com/datta-able/bootstrap/default/icon-simple-line.html" target="_blank">icon-simple-line.html</a>
+                                                            </td>
+                                                            <td>
+<a href="https://pagellapolitica.it/static/plugins/line-icons/" target="_blank">View Resource</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Themify Icon</td>
+                                                            <td>
+<a href="http://html.codedthemes.com/datta-able/bootstrap/default/icon-themify.html" target="_blank">icon-themify.html</a>
+                                                            </td>
+                                                            <td>
+<a href="https://themify.me/themify-icons" target="_blank">View Resource</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <h6>Images reference</h6>
+                                                <table class="table table-bordered table-striped">
+                                                    <thead class="header-table">
+                                                        <tr>
+                                                            <th>Link</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+<a href="https://iconfinder.com/" target="_blank">Icon Finder</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+<a href="https://unsplash.com/" target="_blank">Unsplash Images</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+<a href="https://elements.envato.com/" target="_blank">Elements Photos (i.e. not included in package)</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- custom JS -->
+    <script type="text/javascript">
+        $('body').scrollspy({
+            target: ".pcoded-inner-navbar"
+        });
+        $('body').scroll(function() {
+            $('.nav-item').removeClass('pcoded-trigger');
+        });
+        $(".pcoded-inner-navbar a").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 1500, function() {
+                    window.location.hash = hash;
+                });
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
@@ -19,7 +901,7 @@
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.user %></td>
+        <td><%= event.creator.email %></td>
         <td><%= event.choices %></td>
         <td><%= event.date %></td>
         <td><%= link_to 'Show', event %></td>
