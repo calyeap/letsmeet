@@ -1,29 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Name: </strong>
   <%= @event.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Details: </strong>
   <%= @event.description %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @event.user %>
-</p>
-
-<p>
-  <strong>Choices:</strong>
+  <strong>Poll: </strong>
   <%= @event.choices %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Created on: </strong>
   <%= @event.date %>
+  Date works but requires Google Calender API
 </p>
 
+<p>
+  <strong>Attendance: </strong>
+  Attendances need linking to @event
+</p>
+
+<p>
+  <strong>Location: </strong>
+  Location require Google Maps API
+</p>
+
+<%= button_to 'Attend', attend_event_path(@event), method: :post, confirm: 'really?' %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

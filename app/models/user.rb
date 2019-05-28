@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :events_as_attendee, through: :attendances, source: "event"
 
+
+
 end

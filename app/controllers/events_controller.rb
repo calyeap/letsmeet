@@ -1,13 +1,15 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, :except => [ :show, :index ]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :save, :attend]
 
   # GET /events
   # GET /events.json
   def index
-    @my_events = current_user.events.all
     @events = Event.all
-    # @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
+    @my_events = current_user.events.all
+    
+    @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
+    #Working on this^
     @upcoming_events = current_user.events.where(status: 'accepted').order(date: :desc)
     @events_created_future = current_user.events.future.order(date: :desc)
     @events_created_past = current_user.events.past.order(date: :desc)
@@ -20,22 +22,32 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+  
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.build
+    
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /events/1/edit
   def edit
+
   end
 
-  # POST /events
-  # POST /events.json
   def create
-    @event = current_user.events.build(event_params)
-
+    @event = User.first.events.build
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -71,14 +83,35 @@ class EventsController < ApplicationController
     end
   end
 
+  def attend
+
+
+# Event.last.attendees.each do |a|
+#   a.username
+# end
+    
+@event.attendees << current_user
+  @event.save
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
     end
 
+    def attendance_params
+      params.require(:attendees)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :user_id, :user_type, :choices, :date)
+      params.require(:event).permit(:name, :description, :creator_id, :user_type, :choices, :date)
     end
 end
+
+
+
+
+
+
