@@ -1,10 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Name: </strong>
   <%= @event.name %>
 </p>
 
+<p>
+  <strong>Details: </strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Poll: </strong>
+  <%= @event.choices %>
+</p>
+
+<p>
+  <strong>Created on: </strong>
+  <%= @event.date %>
+  Date works but requires Google Calender API
+</p>
+
+<p>
+  <strong>Attendance: </strong>
+  Attendances need linking to @event
+</p>
+
+<p>
+  <strong>Location: </strong>
+  Location require Google Maps API
+</p>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

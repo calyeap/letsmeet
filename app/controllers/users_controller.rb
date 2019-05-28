@@ -9,6 +9,10 @@ class UsersController < ApplicationController
                                     {'user_id' => current_user.id})
     @events_invited_future = @events_invited.future.order(date: :desc)
     @events_invited_past = @events_invited.past.order(date: :desc)
+
+    
+    @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
+
   end
 
   def show

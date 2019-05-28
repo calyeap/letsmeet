@@ -8,7 +8,8 @@ class EventsController < ApplicationController
     @events = Event.all
     @my_events = current_user.events.all
     
-    # @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
+    @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
+    #Working on this^
     @upcoming_events = current_user.events.where(status: 'accepted').order(date: :desc)
     @events_created_future = current_user.events.future.order(date: :desc)
     @events_created_past = current_user.events.past.order(date: :desc)
@@ -31,6 +32,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+
   end
 
   def create
@@ -79,6 +81,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :user_id, :user_type, :choices, :date)
+      params.require(:event).permit(:name, :description, :creator_id, :user_type, :choices, :date)
     end
 end
