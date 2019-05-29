@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_102159) do
+ActiveRecord::Schema.define(version: 2019_05_29_145157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer "user"
+    t.integer "event"
+    t.index ["event"], name: "index_attendances_on_event"
+    t.index ["user"], name: "index_attendances_on_user"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -31,6 +38,17 @@ ActiveRecord::Schema.define(version: 2019_05_27_102159) do
     t.bigint "user_id", null: false
     t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
     t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
+  end
+
+  create_table "friendships", id: :serial, force: :cascade do |t|
+    t.string "friendable_type"
+    t.integer "friendable_id"
+    t.integer "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "blocker_id"
+    t.integer "status"
+    t.index ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -6,17 +6,20 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @my_events = current_user.events.all
-    
-    @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
-    #Working on this^
-    @upcoming_events = current_user.events.where(status: 'accepted').order(date: :desc)
-    @events_created_future = current_user.events.future.order(date: :desc)
-    @events_created_past = current_user.events.past.order(date: :desc)
+    if user_signed_in?
+      @my_events = current_user.events.all
+      
+      @pending_events = current_user.events.where(status: 'pending').order(date: :desc)
+      #Working on this^
+      @upcoming_events = current_user.events.where(status: 'accepted').order(date: :desc)
+      @events_created_future = current_user.events.future.order(date: :desc)
+      @events_created_past = current_user.events.past.order(date: :desc)
+    end
     # @events_invited = Event.joins(:attendances).where(attendances:
-                                    # {'user_id' => current_user.id})
+    #                                 {'user_id' => current_user.id})
     # @events_invited_future = @events_invited.future.order(date: :desc)
     # @events_invited_past = @events_invited.past.order(date: :desc)
+    
   end
 
   # GET /events/1
@@ -84,11 +87,7 @@ class EventsController < ApplicationController
   end
 
   def attend
-# Event.last.attendees.each do |a|
-#   a.username
-# end
-
-@event.attendees << current_user
+  @event.attendees << current_user
   @event.save
 end
 
