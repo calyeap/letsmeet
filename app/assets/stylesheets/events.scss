@@ -2,14 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-image: url("kopi.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-right: 200px;
-  background-attachment: fixed;
-  background-size: 100%
+  background-image: url("bg.jpg");
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
 }
 
 nav {
   background: rgba(0,0,0,0.4);
 }
+
+h4 {
+  color: black;
+}
+
+.card-title {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #FFFFFF; opacity: 0.85; filter: alpha(opacity=50);
+  color: white;
+}
+

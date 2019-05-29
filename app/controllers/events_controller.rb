@@ -84,12 +84,10 @@ class EventsController < ApplicationController
   end
 
   def attend
-
-
 # Event.last.attendees.each do |a|
 #   a.username
 # end
-    
+
 @event.attendees << current_user
   @event.save
 end

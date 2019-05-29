@@ -4,13 +4,12 @@
   <div class="justify-content-center">
 <h1>Events</h1>
 
-<table>
+<table class="table table-striped table-dark">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>User</th>
-      <th>Choices</th>
+      <th>Event</th>
+      <th>Details</th>
+      <th>Organiser</th>
       <th>Date</th>
       <th colspan="3"></th>
     </tr>
@@ -21,8 +20,7 @@
       <tr>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.creator.email %></td>
-        <td><%= event.choices %></td>
+        <td><%= event.creator %></td>
         <td><%= event.date %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
@@ -32,8 +30,11 @@
   </tbody>
 </table>
 
-<br>
+<br>  
 
-<%= link_to 'New Event', new_event_path %>
+
   </div>
 </div>
+
+
+
