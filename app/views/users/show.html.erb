@@ -1,39 +1,54 @@
-<div>
-  <%= button_to 'create new event', new_event_path, class: "btn btn-primary", style: "width:30%;margin:2% 35%", method: :get %>
-</div>
-<div class="left_box">
-  <h3 style="text-align:center;">My events:</h3>
-  <% if @events_created_future.empty? && @events_created_past.empty? %>
-    <%= content_tag(:h5, 'No events created.', class: "shadow", style: "text-align:center;") %>
+ <% if current_user == @user %>
+  <div>
+    <%= button_to 'create new event', new_event_path, class: "btn btn-primary", style: "width:30%;margin:2% 35%", method: :get %>
+  </div>
+  <div class="left_box">
+    <h3 style="text-align:center;">My events:</h3>
+    <% unless @events_created_future.present? && @events_created_past.present? %>
+      <%= content_tag(:h5, 'No events created.', class: "shadow", style: "text-align:center;") %>
+    <% end %>
+    <% if @events_created_future.present? %>
+      <%= content_tag(:h5, 'future:', class: "shadow", style: "text-align:center;") %>
+    <% end %>
+    <% if @events_created_future.present? %>
+      <% @events_created_future.each do |event| %>
+        <%= render 'event', event: event, time: 'future', from: '' %>
+      <% end %>
+    <% end %>
+    <% if @events_created_past.present? %>
+      <%= content_tag(:h5, 'past:', class: "shadow", style: "text-align:center;") %>
+    <% end %>
+    <% @events_created_past.each do |event| %>
+      <%= render 'event', event: event, time: 'past', from: '' %>
+    <% end %>
+  </div>
+  <div class="right_box">
+    <h3 style="text-align:center;">Invitations:</h3>
+    <%# <% unless @events_invited_future.present? && @events_invited_past.present? %> %>
+      <%# <%= content_tag(:h5, 'No invitations received.', class: "shadow", style: "text-align:center;") %> %>
+    <%# <% end %> %>
+    <%# <% if @events_invited_future.present? %> %>
+      <%# <%= content_tag(:h5, 'future:', class: "shadow", style: "text-align:center;") %> %>
+    <%# <% end %> %>
+    <%# <% @events_invited_future.each do |event| %> %>
+      <%# <%= render 'event', event: event, time: 'future', from: @user.name %> %>
+    <%# <% end %> %>
+    <%# <% if @events_invited_past.present? %> %>
+      <%# <%= content_tag(:h5, 'past:', class: "shadow", style: "text-align:center;") %> %>
+    <%# <% end %> %>
+    <%# <% @events_invited_past.each do |event| %> %>
+      <%# <%= render 'event', event: event, time: 'past', from: @user.name %> %>
+    <%# <% end %> %>
+  </div>
+<% else %>
+
+  <p><%= @user.username.present? ? @user.username : @user.email %></p>
+  <% case %>
+  <% when current_user.friend_request(@user) %>
+    <%= button_to 'Requested', '#' %>
+  <% when current_user.friends_with?(@user) %>
+    <%= button_to 'Friends', '#' %>
+  <% else %>
+    <%= button_to 'Add friend', request_friend_user_path(@user), method: :post %>
   <% end %>
-  <% unless @events_created_future.empty? %>
-    <%= content_tag(:h5, 'future:', class: "shadow", style: "text-align:center;") %>
-  <% end %>
-  <% @events_created_future.each do |event| %>
-    <%= render 'event', event: event, time: 'future', from: '' %>
-  <% end %>
-  <% unless @events_created_past.empty? %>
-    <%= content_tag(:h5, 'past:', class: "shadow", style: "text-align:center;") %>
-  <% end %>
-  <% @events_created_past.each do |event| %>
-    <%= render 'event', event: event, time: 'past', from: '' %>
-  <% end %>
-</div>
-<div class="right_box">
-  <h3 style="text-align:center;">Invitations:</h3>
-  <% if @events_invited_future.empty? && @events_invited_past.empty? %>
-    <%= content_tag(:h5, 'No invitations received.', class: "shadow", style: "text-align:center;") %>
-  <% end %>
-  <% unless @events_invited_future.empty? %>
-    <%= content_tag(:h5, 'future:', class: "shadow", style: "text-align:center;") %>
-  <% end %>
-  <% @events_invited_future.each do |event| %>
-    <%= render 'event', event: event, time: 'future', from: @user.name %>
-  <% end %>
-  <% unless @events_invited_past.empty? %>
-    <%= content_tag(:h5, 'past:', class: "shadow", style: "text-align:center;") %>
-  <% end %>
-  <% @events_invited_past.each do |event| %>
-    <%= render 'event', event: event, time: 'past', from: @user.name %>
-  <% end %>
-</div>
+<% end %>

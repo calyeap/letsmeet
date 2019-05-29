@@ -5,7 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 
-gem 'has_friendship'
 
 # Frontend
 gem 'bootstrap', '~> 4.3.1'
@@ -19,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 
 # DB
+gem 'has_friendship'
 gem 'pg'
 
 # API

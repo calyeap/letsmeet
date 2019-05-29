@@ -1,0 +1,8 @@
+<h1>Friends</h1>
+<% if @friends.present? %>
+  <% @friends.each do |f| %>
+    <%= f.username.present? ? f.username : f.email %>
+  <% end %>
+<% else %>
+  <p>No friends yet, try adding some new friends</p>
+<% end %>
